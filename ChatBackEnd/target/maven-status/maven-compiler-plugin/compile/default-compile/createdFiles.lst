@@ -1,0 +1,15 @@
+com\niit\dao\UserDetailDAOImpl.class
+com\niit\dao\UserDetailDAO.class
+com\niit\model\Blog.class
+com\niit\model\ForumComment.class
+com\niit\model\Forum.class
+com\niit\dao\ForumDAOImpl.class
+com\niit\model\UserDetail.class
+com\niit\dao\JobDAOImpl.class
+com\niit\dao\BlogDAOImpl.class
+com\niit\dao\ForumDAO.class
+com\niit\config\DBConfig.class
+com\niit\model\BlogComment.class
+com\niit\model\Job.class
+com\niit\dao\JobDAO.class
+com\niit\dao\BlogDAO.class
