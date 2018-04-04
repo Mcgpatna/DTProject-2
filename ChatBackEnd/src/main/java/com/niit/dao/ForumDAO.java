@@ -16,6 +16,7 @@ public interface ForumDAO
 	public boolean rejectForum(Forum forum);
 	public Forum getForum(int forumId);
 	public List<Forum> listAllForums();
+	public List<Forum> listApproveForums(String username);
 	public boolean increaseLike(Forum forum);
 	
 	//for ForumComment model class

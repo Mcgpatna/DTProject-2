@@ -10,6 +10,7 @@ public interface UserDetailDAO
 
 	public boolean addUserDetail(UserDetail user);
 	public boolean updateUserDetail(UserDetail user);
-	public List<UserDetail> listUsers(String loginName);
+	public UserDetail getUser(String loginName);
 	public List<UserDetail> listAllUsers();
+	public boolean chkCredential(UserDetail user);
 }

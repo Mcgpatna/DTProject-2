@@ -92,6 +92,25 @@ public class ForumDAOImpl implements ForumDAO
 		}
 	}
 	
+	public List<Forum> listApproveForums(String username) 
+	{
+		try 
+		{
+			Session session=sessionFactory.openSession();
+			System.out.println("username is " +username);
+			Query query=session.createQuery("from Forum where loginname=:username and status='A'");
+			query.setParameter("username", username);
+			List<Forum> listForums=query.list();
+			return listForums;
+		} 
+		catch (Exception e) {
+			
+			System.out.println("Error in a particular Forum.. "+e);
+			
+			return null;
+		}
+	}
+	
 	@Transactional
 	public boolean approveForum(Forum forum) 
 	{

@@ -53,16 +53,17 @@ public class UserDetailDAOImpl implements UserDetailDAO
 		}
 	}
 
-	public List<UserDetail> listUsers(String loginName) 
+	public UserDetail getUser(String loginName) 
 	{
 		try 
 		{
 			Session session=sessionFactory.openSession();
 			System.out.println("username is " +loginName);
-			Query query=session.createQuery("from UserDetail where loginname=:loginName");
-			query.setParameter("loginName", loginName);
-			List<UserDetail> listUsers=query.list();
-			return listUsers;
+			//Query query=session.createQuery("from UserDetail where loginname=:loginName");
+			//query.setParameter("loginName", loginName);
+			//List<UserDetail> listUsers=query.list();
+			UserDetail user=(UserDetail)session.get(UserDetail.class, loginName);
+			return user;
 		} 
 		catch (Exception e) {
 			
@@ -89,6 +90,27 @@ public class UserDetailDAOImpl implements UserDetailDAO
 			
 			return null;
 		}
+	}
+
+	public boolean chkCredential(UserDetail user) 
+	{
+	
+		try
+		{
+			Session session=sessionFactory.openSession();
+			Query query=session.createQuery("from UserDetail where loginName=:loginName and password=:password");
+			query.setParameter("loginName", user.getLoginName());
+			query.setParameter("password",user.getPassword());
+			UserDetail userDetail=(UserDetail)query.list().get(0);
+			
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+		
+		
 	}
 
 }

@@ -51,21 +51,9 @@ public class UserDetailTestCase {
 		assertTrue("Problem in inserting user deatils..",userDAO.addUserDetail(user));
 	}
 	
-	@Test
-	public void listSingleUser()
-	{
-		List<UserDetail> list=userDAO.listUsers("madhu");
-		
-		assertTrue("Problem in listing user..",list.size()>0);
-		
-		for(UserDetail user:list)
-		{
-			System.out.print(user.getLoginName()+":::");
-			System.out.println(user.getUserName());
-			
-		}
-	}
 	
+	
+	@Ignore
 	@Test
 	public void listAllUser()
 	{
@@ -76,5 +64,17 @@ public class UserDetailTestCase {
 			System.out.print(user.getLoginName()+":::");
 			System.out.println(user.getUserName());
 		}
+	}
+	
+	@Test
+	public void chkUserTestCase()
+	{
+		
+		UserDetail user=new UserDetail();
+		user.setLoginName("madhu");
+		user.setPassword("pass@123");
+		
+		assertTrue("Problem in checking user Credential",userDAO.chkCredential(user));
+		
 	}
 }

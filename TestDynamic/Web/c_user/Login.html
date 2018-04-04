@@ -1,0 +1,20 @@
+<div class="container" ng-controller="UserController">
+	<h1 class="well"><center><font face="Monotype Corsiva">Login Form</font></center></h1>
+	<div class="row">
+		<form>
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label>Login Name</label>
+						<input type="text"  name="loginName"  ng-model="User.loginName" placeholder="Enter User Name Here" >
+					</div>
+					<div class="col-sm-6 form-group">
+						<label>Password</label>
+						<input type="password" name="password" ng-model="User.password" placeholder="Enter password Here" >
+					</div>
+					<center><input type="submit" valoue="Login" ng-click="login()" class="btn btn-lg btn-info"></center>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

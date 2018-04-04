@@ -80,7 +80,7 @@ public class JobDAOImpl implements JobDAO
 		} 
 		catch (Exception e) {
 			
-			System.out.println("Error in all Blogs.. "+e);
+			System.out.println("Error in getting all Jobs.. "+e);
 			
 			return null;
 		}

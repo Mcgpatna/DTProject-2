@@ -4,6 +4,8 @@ package com.niit.restcontroller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,19 +67,21 @@ public class UserDetailController
 		
 	}
 	
-	@GetMapping("/listAUser/{loginName}")
-	public ResponseEntity<List<UserDetail>> showSingleUser(@PathVariable("loginName")String loginName)
+	
+	
+	@PostMapping(value="/chkLogin")
+	public ResponseEntity<UserDetail> chkLogin(@RequestBody UserDetail userDetail,HttpSession session)
 	{
-		List<UserDetail> listUser=userDAO.listUsers(loginName);
 		
-		if(listUser!=null)
+		if(userDAO.chkCredential(userDetail))
 		{
-			return new ResponseEntity<List<UserDetail>>(listUser,HttpStatus.OK);
+			UserDetail tempUser=userDAO.getUser(userDetail.getLoginName());
+			session.setAttribute("userDetail", tempUser);
+			return new ResponseEntity<UserDetail>(tempUser,HttpStatus.OK);
 		}
 		else
 		{
-			return new ResponseEntity<List<UserDetail>>(listUser,HttpStatus.NOT_FOUND);
+			return new ResponseEntity<UserDetail>(userDetail,HttpStatus.UNAUTHORIZED);
 		}
-		
 	}
 }
