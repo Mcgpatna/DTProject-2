@@ -20,7 +20,7 @@ public class Forum
 	
 	String forumName;
 	String forumContent;
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-mm-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	Date createDate;
 	int likes;
 	String loginName;

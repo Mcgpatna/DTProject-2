@@ -94,10 +94,11 @@ public class BlogDAOTestCase {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void listApprovedBlogByUserTest()
 	{
-		List <Blog> listBlog=blogDAO.listApprovedBlogs("user1");
+		List <Blog> listBlog=blogDAO.listApprovedBlogs("madhu");
 		assertTrue("Promlem in listing a Blog",listBlog.size()>0);
 		
 		for(Blog blog:listBlog)
@@ -122,7 +123,7 @@ public class BlogDAOTestCase {
 	@Test
 	public void listAllBlogTestCase()
 	{
-		List <Blog> listBlog=blogDAO.listAllBlogs();
+		List <Blog> listBlog=blogDAO.listAllApprovedBlogs();
 		for(Blog blog:listBlog)
 		{
 			System.out.print(blog.getBlogName()+":::");

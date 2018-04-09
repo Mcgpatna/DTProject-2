@@ -164,13 +164,13 @@ public class BlogDAOImpl implements BlogDAO
 		}
 	}
 
-	public List<Blog> listAllBlogs() 
+	public List<Blog> listAllApprovedBlogs() 
 	{
 		
 		try 
 		{
 			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from Blog");
+			Query query=session.createQuery("from Blog where status='A'");
 			
 			List<Blog> listBlogs=query.list();
 			return listBlogs;
@@ -183,6 +183,24 @@ public class BlogDAOImpl implements BlogDAO
 		}
 	}
 
+	public List<Blog> listAllNotApprovedBlogs() 
+	{
+		
+		try 
+		{
+			Session session=sessionFactory.openSession();
+			Query query=session.createQuery("from Blog where status='NA'");
+			
+			List<Blog> listBlogs=query.list();
+			return listBlogs;
+		} 
+		catch (Exception e) {
+			
+			System.out.println("Error in all Blogs.. "+e);
+			
+			return null;
+		}
+	}
 
 	@Transactional
 	public boolean increaseLike(Blog blog) 

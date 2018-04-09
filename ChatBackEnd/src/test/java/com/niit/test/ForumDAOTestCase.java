@@ -130,7 +130,7 @@ public class ForumDAOTestCase {
 		assertTrue("Problem in inserting comments..",forumDAO.addForumComment(comments));
 	}
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void listAllForumComment()
 	{

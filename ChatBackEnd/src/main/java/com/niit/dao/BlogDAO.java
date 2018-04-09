@@ -16,7 +16,8 @@ public interface BlogDAO {
 	public boolean approveBolg(Blog blog);
 	public boolean rejectBolg(Blog blog);
 	public Blog getBlog(int blogId);
-	public List<Blog> listAllBlogs();
+	public List<Blog> listAllApprovedBlogs();
+	public List<Blog> listAllNotApprovedBlogs();
 	public List<Blog> listApprovedBlogs(String username);
 	public boolean increaseLike(Blog blog);
 	

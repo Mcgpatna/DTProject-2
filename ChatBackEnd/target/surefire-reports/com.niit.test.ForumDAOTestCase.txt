@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.test.ForumDAOTestCase
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 9, Time elapsed: 0.343 sec
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0 sec

@@ -1,0 +1,32 @@
+<div class="container" ng-controller="BlogController">
+
+  
+        <div style="margin-top: 25px; margin-left: 25px;">
+            <h5>Manage Blogs here</h5>
+        </div>
+        <br /> <br />
+
+        <div style="margin-left: 25px; margin-bottom: 250px;">
+            <table >
+               
+                <tr>
+                    <th >Blog Id</th>
+                    <th >Blog Name</th>
+                    <th >Author Name</th>
+                    <th >Published On</th>
+                    <th >Options</th>
+                </tr>
+              
+
+               
+                    <tr ng-repeat="blog in showNBlog">
+                        <td>{{blog.blogId}}</td>
+                        <td>{{blog.blogName}}</td>
+                        <td>{{blog.loginName}}</td>
+                        <td>{{blog.createDate}}</td>
+                       <td><input type="submit" value="Approve" ng-click="apprBlog(blog.blogId)"></td>
+                    </tr>
+               
+        </table>
+    </div>
+</div>

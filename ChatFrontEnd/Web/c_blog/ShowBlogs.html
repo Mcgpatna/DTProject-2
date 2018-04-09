@@ -1,0 +1,16 @@
+<div class="container" ng-controller="BlogController">
+
+<table class="table">
+
+	<tr>
+		<th>Blog Name</th>
+		<th>Blog Content</th>
+	</tr>
+	<tr ng-repeat="blog in showBlogData">
+		
+			<td>{{blog.blogName}}</td>
+			<td>{{blog.blogContent}}</td>
+		
+	</tr>
+</table>
+</div>

@@ -24,7 +24,7 @@ public class Job
 	String company;
 	String location;
 	int salary;
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-mm-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	Date lastDateApply;
 	public int getJobId() {
 		return jobId;

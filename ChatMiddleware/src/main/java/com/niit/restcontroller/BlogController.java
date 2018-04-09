@@ -2,6 +2,8 @@ package com.niit.restcontroller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.dao.BlogDAO;
 import com.niit.model.Blog;
+import com.niit.model.UserDetail;
 
 @RestController
 public class BlogController 
@@ -27,11 +30,25 @@ public class BlogController
 		
 	}
 	
+	@GetMapping("/showAllBlog")
+	public ResponseEntity<List<Blog>> showAllBlog()
+	{
+		List<Blog> listBlog=blogDAO.listAllApprovedBlogs();
+		if(listBlog!= null)
+		{
+			return new ResponseEntity<List<Blog>>(listBlog,HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<List<Blog>>(listBlog,HttpStatus.NOT_FOUND);
+		}
+	}
 
 	@GetMapping("/showApprovedBlog")
-	public ResponseEntity<List<Blog>> showApprovedBlog()
+	public ResponseEntity<List<Blog>> showApprovedBlog(HttpSession session)
 	{
-		List<Blog> listBlogs=blogDAO.listApprovedBlogs("user1");
+		
+		List<Blog> listBlogs=blogDAO.listApprovedBlogs(((UserDetail)session.getAttribute("userDetail")).getLoginName());
 		
 		if(listBlogs!=null)
 		{
@@ -43,13 +60,35 @@ public class BlogController
 		}
 		
 	}
+	
+	@GetMapping("/showNotApprovedBlog")
+	public ResponseEntity<List<Blog>> showNotApprovedBlog()
+	{
+		
+		List<Blog> listBlogs=blogDAO.listAllNotApprovedBlogs();
+		
+		if(listBlogs!=null)
+		{
+			return new ResponseEntity<List<Blog>>(listBlogs,HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<List<Blog>>(listBlogs,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+	}
+	
 	@PostMapping("/addBlog")
-	public ResponseEntity<String> addBlog(@RequestBody Blog blog)
+	public ResponseEntity<String> addBlog(@RequestBody Blog blog,HttpSession session)
 	{
 		blog.setCreateDate(new java.util.Date());
 		blog.setLikes(0);
-		blog.setLoginName("madhu");
-		blog.setStatus("NA");
+		UserDetail user=((UserDetail)session.getAttribute("userDetail"));
+		blog.setLoginName(user.getLoginName());
+		if(user.getRole()!="ADMIN")
+			blog.setStatus("NA");
+		else
+			blog.setStatus("A");
 		
 		System.out.println("Blog Name"+blog.getBlogName());
 		System.out.println("Blog Contents"+blog.getBlogContent());
