@@ -71,7 +71,7 @@ public class BlogDAOImpl implements BlogDAO
 		}
 	}
 
-	public List<Blog> listBlogs(String username) 
+	public List<Blog> listMyBlogs(String username) 
 	{
 		// TODO Auto-generated method stub
 		try 
@@ -91,7 +91,7 @@ public class BlogDAOImpl implements BlogDAO
 		}
 	}
 	
-	public List<Blog> listApprovedBlogs(String username) 
+	/*public List<Blog> listApprovedBlogs(String username) 
 	{
 		// TODO Auto-generated method stub
 		try 
@@ -109,7 +109,7 @@ public class BlogDAOImpl implements BlogDAO
 			
 			return null;
 		}
-	}
+	}*/
 
 	@Transactional
 	public boolean approveBolg(Blog blog) 

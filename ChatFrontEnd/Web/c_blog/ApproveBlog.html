@@ -7,26 +7,27 @@
         <br /> <br />
 
         <div style="margin-left: 25px; margin-bottom: 250px;">
-            <table >
-               
+            <table class="table-responsive">
+               <thead>
                 <tr>
                     <th >Blog Id</th>
                     <th >Blog Name</th>
                     <th >Author Name</th>
                     <th >Published On</th>
-                    <th >Options</th>
+                    <!-- <th >Options</th> -->
                 </tr>
-              
+              </thead>
 
-               
-                    <tr ng-repeat="blog in showNBlog">
+               <tbody>
+                    <tr ng-repeat="blog in  showNBlog"> 
                         <td>{{blog.blogId}}</td>
                         <td>{{blog.blogName}}</td>
                         <td>{{blog.loginName}}</td>
                         <td>{{blog.createDate}}</td>
-                       <td><input type="submit" value="Approve" ng-click="apprBlog(blog.blogId)"></td>
+                       <td><input type="submit" value="Approve" ng-click="apprBlog(blog.blogId)" class="btn btn-info"></td>
+                       <td><input type="submit" value="Delete" ng-click="deleteBlog(blog.blogId)" class="btn btn-danger"></td>
                     </tr>
-               
+               </tbody>
         </table>
     </div>
 </div>

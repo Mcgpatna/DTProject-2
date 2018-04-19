@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.dao.BlogDAO;
 import com.niit.model.Blog;
+import com.niit.model.BlogComment;
 import com.niit.model.UserDetail;
 
 @RestController
@@ -44,11 +45,11 @@ public class BlogController
 		}
 	}
 
-	@GetMapping("/showApprovedBlog")
+	@GetMapping("/showMyBlog")
 	public ResponseEntity<List<Blog>> showApprovedBlog(HttpSession session)
 	{
 		
-		List<Blog> listBlogs=blogDAO.listApprovedBlogs(((UserDetail)session.getAttribute("userDetail")).getLoginName());
+		List<Blog> listBlogs=blogDAO.listMyBlogs(((UserDetail)session.getAttribute("userDetail")).getLoginName());
 		
 		if(listBlogs!=null)
 		{
@@ -73,6 +74,7 @@ public class BlogController
 		}
 		else
 		{
+			System.out.println(listBlogs.size());
 			return new ResponseEntity<List<Blog>>(listBlogs,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
@@ -197,4 +199,30 @@ public class BlogController
 		}
 	}
 	
+	@GetMapping("/listAllBlogComment/{blogId}")
+	public ResponseEntity<List<BlogComment>> showBlogComment(@PathVariable("blogId") int blogId)
+	{
+		List<BlogComment> listBlogComment=blogDAO.listBlogComments(blogId);
+		if(listBlogComment.size()>0)
+		{
+			return new ResponseEntity<List<BlogComment>>(listBlogComment,HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<List<BlogComment>>(listBlogComment,HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@PostMapping("/addComment")
+	public ResponseEntity<String> addComment(@RequestBody BlogComment blogComment)
+	{
+		if(blogDAO.addBlogComment(blogComment))
+		{
+			return new ResponseEntity<String>("Success..",HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<String>("Failure..",HttpStatus.NOT_FOUND);
+		}
+	}
 }

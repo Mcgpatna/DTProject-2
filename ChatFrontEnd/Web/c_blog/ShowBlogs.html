@@ -1,16 +1,32 @@
 <div class="container" ng-controller="BlogController">
 
-<table class="table">
 
-	<tr>
-		<th>Blog Name</th>
-		<th>Blog Content</th>
-	</tr>
-	<tr ng-repeat="blog in showBlogData">
-		
+<div class="panel-group" id="accordian">
+ <div class="panel panel-default">
+	<div class="panel-heading" ng-repeat="blog in showBlogData" >
+	 <h4 class="panel-title">Likes:{{blog.likes}}</h4>
+		<!-- <tr ng-repeat="blog in showBlogData"> -->
+	 <a data-toggle="collapse" data-parent="#accordion" href="#" ng-click="listBlogComment(blog.blogId)">{{blog.blogName}}</a> </h4>
+	</div>		
+	<h4><input type="button" ng-click="increaseLike(blog.blogId)" value="Like" class="btn btn-info"></h4>
+		<div id="collapse1" class="panel-collapse collapse in">
+			<div class="panel-body">
+						{{blog.blogContent}}
+			</div>
+		</div>
+	
+	</div>
+</div> 
+	<!-- <tr ng-repeat="blog in showBlogData">
 			<td>{{blog.blogName}}</td>
 			<td>{{blog.blogContent}}</td>
-		
+			<td>{{blog.createDate}}</td>
+			<td>{{blog.loginName}}</td>
+			<td>{{blog.likes}}</td>
+			<td><input type="submit" value="Like" ng-click="increaseLike(blog.blogId)"></td>
 	</tr>
+	</tbody>
 </table>
+ -->
+
 </div>

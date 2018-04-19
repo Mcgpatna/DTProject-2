@@ -1,0 +1,18 @@
+<div class="container" ng-controller="BlogController">
+
+    <div class="panel-group" id="accordian">
+
+        <div class="panel panel-default"> 
+            <div class="panel-heading" ng-repeat="blogs in showBlogData">
+             <h4 class="panel-title">Likes:{{blogs.likes}}
+                <a data-toggle="collapse" data-parent="#accordian" ng-click="listBlogComment(blogs.blogId)">{{blogs.blogName}}</a></h4>
+                <input type="submit" value="Like" class="btn btn-info" ng-click="increaseLike(blog.blogId)">  
+             </div> 
+             <div id="#collapse1" class="panel-collapse collapse in">
+             	<div class="panel-body">
+             		{{blogs.blogContent}}
+             	</div>
+              </div>
+     	</div>
+     </div>
+</div>

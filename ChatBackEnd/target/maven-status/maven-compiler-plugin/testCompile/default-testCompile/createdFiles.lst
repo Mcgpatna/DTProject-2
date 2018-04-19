@@ -1,4 +1,5 @@
+com\niit\test\JobTestCase.class
 com\niit\test\ForumDAOTestCase.class
+com\niit\test\FriendTestCase.class
 com\niit\test\UserDetailTestCase.class
 com\niit\test\BlogDAOTestCase.class
-com\niit\test\JobTestCase.class

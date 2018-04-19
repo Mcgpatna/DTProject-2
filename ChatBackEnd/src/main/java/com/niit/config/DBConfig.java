@@ -17,14 +17,20 @@ import com.niit.dao.BlogDAO;
 import com.niit.dao.BlogDAOImpl;
 import com.niit.dao.ForumDAO;
 import com.niit.dao.ForumDAOImpl;
+import com.niit.dao.FriendDAO;
+import com.niit.dao.FriendDAOImpl;
 import com.niit.dao.JobDAO;
 import com.niit.dao.JobDAOImpl;
 import com.niit.dao.UserDetailDAO;
 import com.niit.dao.UserDetailDAOImpl;
+import com.niit.dao.UserProfileDAO;
+import com.niit.dao.UserProfileDAOImpl;
 import com.niit.model.Blog;
 import com.niit.model.Forum;
+import com.niit.model.Friend;
 import com.niit.model.Job;
 import com.niit.model.UserDetail;
+import com.niit.model.UserProfile;
 
 
 @Configuration
@@ -63,7 +69,10 @@ public class DBConfig {
 			sessionFactoryBuilder.addAnnotatedClass(Blog.class); 
 			sessionFactoryBuilder.addAnnotatedClass(Forum.class);
 			sessionFactoryBuilder.addAnnotatedClass(UserDetail.class);
+			sessionFactoryBuilder.addAnnotatedClass(UserProfile.class);
 			sessionFactoryBuilder.addAnnotatedClass(Job.class);
+			sessionFactoryBuilder.addAnnotatedClass(Friend.class);
+			
 			
 			SessionFactory sessionFactory=sessionFactoryBuilder.buildSessionFactory();
 			System.out.println(" * * * * * Session Factory Bean or better to call 'the Spring Container' has just been initalized * * * * * ");
@@ -89,6 +98,20 @@ public class DBConfig {
 	{
 			System.out.println("+++++ Do database manipulation of UserDetail Model as UserDetailDAO has been enabled now!! +++++");
 		    return new UserDetailDAOImpl();
+	}
+	
+	@Bean(name="userProfileDAO")
+	public UserProfileDAO getUserProfileDAO()
+	{
+			System.out.println("+++++ Do database manipulation of UserProfile Model as UserProfileDAO has been enabled now!! +++++");
+		    return new UserProfileDAOImpl();
+	}
+	
+	@Bean(name="friendDAO")
+	public FriendDAO getFriendDAO()
+	{
+			System.out.println("+++++  FriendDAO has been enabled now!! +++++");
+		    return new FriendDAOImpl();
 	}
 	
 	@Bean(name="jobDAO")

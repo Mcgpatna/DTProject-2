@@ -1,0 +1,17 @@
+<div class="container"  ng-controller="FriendController">
+<table class="table">
+	<tr>
+		<td>Waiting Friends' Request </td>
+		
+	</tr>
+	
+	<tr ng-repeat="friend in pendingFriendList">
+		<td><img src="http://localhost:8082/ChatMiddleware/getImage/{{friend.friendLoginName}}" class="img-circle" alt="No Picture" width="100" height="100" ><br/>{{friend.friendLoginName}}</td>
+		<td><input type="button" value="Make Friend" ng-click="acceptFriend(friend.friendId)" class="btn btn-info"/> <br/>
+		<input type="button" value="Reject" ng-click="deleteFriend(friend.friendId)" class="btn btn-danger"/> </td>
+		
+		
+	</tr>
+</table>
+
+</div>

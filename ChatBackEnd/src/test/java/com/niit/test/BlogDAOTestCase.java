@@ -82,7 +82,7 @@ public class BlogDAOTestCase {
 	@Test
 	public void listBlogByUserTest()
 	{
-		List <Blog> listBlog=blogDAO.listBlogs("user1");
+		List <Blog> listBlog=blogDAO.listMyBlogs("user1");
 		assertTrue("Promlem in listing a Blog",listBlog.size()>0);
 		
 		for(Blog blog:listBlog)
@@ -96,9 +96,9 @@ public class BlogDAOTestCase {
 	
 	@Ignore
 	@Test
-	public void listApprovedBlogByUserTest()
+	public void listNotApprovedBlogByUserTest()
 	{
-		List <Blog> listBlog=blogDAO.listApprovedBlogs("madhu");
+		List <Blog> listBlog=blogDAO.listAllNotApprovedBlogs();
 		assertTrue("Promlem in listing a Blog",listBlog.size()>0);
 		
 		for(Blog blog:listBlog)
@@ -119,7 +119,7 @@ public class BlogDAOTestCase {
 	}
 	
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void listAllBlogTestCase()
 	{
@@ -133,7 +133,7 @@ public class BlogDAOTestCase {
 		}
 	}
 	
-	@Ignore
+	//@Ignore
 	@Test
 	public void addCommentTest()
 	{
@@ -141,11 +141,11 @@ public class BlogDAOTestCase {
 		comments.setCommentText("Very Informative");
 		comments.setCommentDate(new java.util.Date());
 		comments.setLoginName("madhu");
-		comments.setBlogId(953);
+		comments.setBlogId(972);
 		assertTrue("Problem in inserting comments..",blogDAO.addBlogComment(comments));
 	}
 	
-	//@Ignore
+	@Ignore
 	@Test
 	public void listAllBlogComment()
 	{

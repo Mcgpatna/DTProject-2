@@ -16,14 +16,32 @@
       	<li ng-hide="currentUser.role=='ADMIN'||currentUser.role=='USER'"><a href="#/aboutUs">AboutUs</a>
       	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BLOG <span class="caret"></span></a>
       	<ul class="dropdown-menu">
-      		<li ng-hide="currentUser.role==undefined"><a href="#/blog">Add Blog</a></li>
-      		<li><a href="#showblog">Show Blog</a></li>
-      		<li ng-hide="currentUser.role==undefined"><a href="#/myblog">My Blog</a></li>
-      		<li ng-hide="currentUser.role=='USER' || currentUser.role==undefined"><a href="#/approveblog">Manage Blog</a>
+      		<li ng-hide="currentUser.role==undefined || currentUser.role=='ADMIN'"><a href="#/blog">Add Blog</a></li>
+      		<li><a href="#/showblog">Show Blog</a></li>
+      		<li ng-hide="currentUser.role==undefined || currentUser.role=='ADMIN'"><a href="#/myblog">My Blog</a></li>
+      		<li ng-hide="currentUser.role=='USER' || currentUser.role==undefined"><a href="#/approveblog">Blog Approval</a>
 	  	</ul>
+	  	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">JOB <span class="caret"></span></a>
+      	<ul class="dropdown-menu">
+      		<li><a href="#/showJob">Show Job</a></li>
+      		<li ng-show="currentUser.role=='ADMIN'"><a href="#/addJob">Publish a Job</a></li>
+      	
+	  	</ul>
+	  	
+	  	<li class="dropdown" ng-show="currentUser.role=='USER'"><a class="dropdown-toggle" data-toggle="dropdown" href="#">FRIEND <span class="caret"></span></a>
+      	<ul class="dropdown-menu">
+      		
+      		<li><a href="#/showFriend">Friend List</a></li>
+      		<li><a href="#/showPendingFriend">Pending Friend List</a></li>
+      		<li><a href="#/showSuggestedFriend">New Friend</a></li>
+	  	</ul>
+	  	</li>
+	  	<li ng-hide="currentUser.role==undefined"><a href="#/profileUpdate">Update Profile</a></li>
         <div class="nav navbar-nav navbar-right" ng-hide="currentUser==undefined">
         	<font color="white" face="calibri" size='4'>Welcome {{currentUser.userName}}</font>
+        	<img src="http://localhost:8082/ChatMiddleware/getImage/{{currentUser.loginName}}" width="25" hight="25"/>
         	<input type="submit" value="Logout" ng-click="logout()"/>
         </div>
+        
 </nav>
 

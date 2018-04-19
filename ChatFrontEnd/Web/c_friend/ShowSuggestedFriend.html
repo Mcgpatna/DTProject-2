@@ -1,0 +1,17 @@
+<div class="container"  ng-controller="FriendController">
+<table class="table">
+	<tr>
+		<td>New Friend Name </td>
+		
+	</tr>
+	
+	<tr ng-repeat="friend in suggestedFriendList">
+		<td><img src="http://localhost:8082/ChatMiddleware/getImage/{{friend.loginName}}" class="img-circle" alt="No Picture" width="100" height="100" ><br/>{{friend.loginName}}</td>
+		<td><input type="button" value="Send Request" ng-click="sendFriendRequest(friend.loginName)" class="btn btn-info"/> <br/>
+		
+		
+		
+	</tr>
+</table>
+
+</div>

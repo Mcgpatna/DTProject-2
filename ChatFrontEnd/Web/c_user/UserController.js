@@ -1,6 +1,7 @@
 myApp.controller("UserController",function($scope,$rootScope,$http,$location,$cookieStore)
 {
 	$scope.User={loginName:'',password:'',userName:'',emailId:'',mobileNo:'',address:'',status:'',role:''};
+	$scope.profile={loginName:'',image:''};
 	
 	$scope.register=function()
 	{
@@ -33,6 +34,17 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 					$location.path("/UserHome");
 				});
 		
+	}
+	
+	$scope.doUpload=function()
+	{
+		console.log('inside doUpload()..');
+		$http.post('http://localhost:8082/ChatMiddleware/doUpload',$scope.profile)
+		.then(function(response)
+				{
+					console.log(response.data);
+					$location.path("/");
+				});
 	}
 	
 	$rootScope.logout=function()

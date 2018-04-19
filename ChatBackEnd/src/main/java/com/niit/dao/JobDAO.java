@@ -11,6 +11,6 @@ public interface JobDAO
 	public boolean updateJob(Job job);
 	public Job getJob(int jobId);
 	public List<Job> listtAllJobs();
-	//public boolean applyJob(int jobId);
+	public boolean applyJob(int jobId);
 
 }

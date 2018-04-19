@@ -12,13 +12,13 @@ public interface BlogDAO {
 	public boolean addBlog(Blog blog);
 	public boolean deleteBlog(int blogId);
 	public boolean updateBlog(Blog blog);
-	public List<Blog> listBlogs(String username);
+	public List<Blog> listMyBlogs(String username);
 	public boolean approveBolg(Blog blog);
 	public boolean rejectBolg(Blog blog);
 	public Blog getBlog(int blogId);
 	public List<Blog> listAllApprovedBlogs();
 	public List<Blog> listAllNotApprovedBlogs();
-	public List<Blog> listApprovedBlogs(String username);
+	//public List<Blog> listMyBlogs(String username);
 	public boolean increaseLike(Blog blog);
 	
 	//for BlogComment model class
