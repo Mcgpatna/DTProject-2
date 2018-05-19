@@ -1,3 +1,4 @@
+F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\ChatController.java
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\FriendController.java
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\UserProfileController.java
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\BlogController.java
@@ -5,4 +6,5 @@ F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\JobControll
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\UserDetailController.java
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\config\WebInitializer.java
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\config\WebResolver.java
+F:\dt workspace\ChatMiddleware\src\main\java\com\niit\config\WebSocketConfig.java
 F:\dt workspace\ChatMiddleware\src\main\java\com\niit\restcontroller\ForumController.java

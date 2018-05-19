@@ -1,3 +1,4 @@
+
 <div class="container" ng-controller="JobController">
 <h1 class="well"><center><font face="Monotype Corsiva">Publishing a Job</font></center></h1>
 	<div class="row">
@@ -16,20 +17,21 @@
 						<label>Company</label>
 						<input type="text" name="company" ng-model="job.company" placeholder="Enter Company Details Here" />
 					</div>
-					<div class="col-sm-6 form-group">
+				</div>
+					<div class="form-group">
 						<label>Location</label>
 						<input type="text" name="location" ng-model="job.location" placeholder="Enter Job Location Here" />
 					</div>
-					<div class="col-sm-6 form-group">
+					<div class="form-group">
 						<label>Salary</label>
 						<input type="text" name="salary" ng-model="job.salary" placeholder="Enter Salary Details" />
 					</div>
-					<div class="col-sm-6 form-group">
+					<div class="form-group">
 						<label>Last Date to Apply</label>
-						<input type="date" name="lastDateApply" ng-model="job.lastDateApply" placeholder="Enter Last Date to Apply for Job" />
+						<input type="date" name="" ng-model="job.lastDateApply" placeholder="Enter Last Date to Apply for Job" />
 					</div>
-					<center><input type="submit" value="Add Job" ng-click="addJob()" class="btn btn-lg btn-info"></center>
-				</div>
+					<center><input type="submit" value="Add Job" ng-click="addJob()" class="btn btn-info"></center>
+				
 			</div>
 		</form>
 	</div>

@@ -113,4 +113,23 @@ public class UserDetailDAOImpl implements UserDetailDAO
 		
 	}
 
+	public boolean chkDuplicateLogin(String loginName) 
+	{
+	
+		try
+		{
+			Session session=sessionFactory.openSession();
+			Query query=session.createQuery("from UserDetail where loginName=:loginName");
+			query.setParameter("loginName", loginName);
+			
+			UserDetail userDetail=(UserDetail)query.list().get(0);
+			System.out.println("Login Name Already Exists...");
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+
 }

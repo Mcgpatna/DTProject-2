@@ -1,32 +1,31 @@
+<!-- <link rel="styelsheet" type="text/css" href="common/style.css"/> -->
 <div class="container" ng-controller="BlogController">
 
 
 <div class="panel-group" id="accordian">
  <div class="panel panel-default">
 	<div class="panel-heading" ng-repeat="blog in showBlogData" >
-	 <h4 class="panel-title">Likes:{{blog.likes}}</h4>
-		<!-- <tr ng-repeat="blog in showBlogData"> -->
-	 <a data-toggle="collapse" data-parent="#accordion" href="#" ng-click="listBlogComment(blog.blogId)">{{blog.blogName}}</a> </h4>
-	</div>		
-	<h4><input type="button" ng-click="increaseLike(blog.blogId)" value="Like" class="btn btn-info"></h4>
-		<div id="collapse1" class="panel-collapse collapse in">
+	 <h4 class="panel-title">{{blog.likes}} Like(s)</h4>
+	  	
+	 <!-- <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{blog.blogId}}" ng-click="listBlogComment(blog.blogId)">{{blog.blogName}}</a> </h4> -->
+	  <a data-toggle="tooltip" title="Click to get Blog Comments" data-placement="auto" data-parent="#accordion" href="#collapse{{blog.blogId}}" ng-click="listBlogComment(blog.blogId)">{{blog.blogName}}</a> </h4>
+	 	<div id="collapse{{blog.blogId}}" class="panel-collapse collapse in">
 			<div class="panel-body">
 						{{blog.blogContent}}
 			</div>
 		</div>
+	 <h4><input type="button" ng-click="increaseLike(blog.blogId)" value="Like" class="btn btn-info"></h4>
+	 
+	</div>		
+	
+		<!-- <div id="collapse1" class="panel-collapse collapse in">
+			<div class="panel-body">
+						{{blog.blogContent}}
+			</div>
+		</div> -->
 	
 	</div>
 </div> 
-	<!-- <tr ng-repeat="blog in showBlogData">
-			<td>{{blog.blogName}}</td>
-			<td>{{blog.blogContent}}</td>
-			<td>{{blog.createDate}}</td>
-			<td>{{blog.loginName}}</td>
-			<td>{{blog.likes}}</td>
-			<td><input type="submit" value="Like" ng-click="increaseLike(blog.blogId)"></td>
-	</tr>
-	</tbody>
-</table>
- -->
+	
 
 </div>

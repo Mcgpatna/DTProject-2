@@ -1,6 +1,9 @@
 package com.niit.restcontroller;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.dao.JobDAO;
 import com.niit.model.Job;
+import com.niit.model.JobApplyDetails;
+import com.niit.model.UserDetail;
 
 @RestController
 public class JobController 
@@ -24,6 +29,7 @@ public class JobController
 	public ResponseEntity<String> addJob(@RequestBody Job job)
 	{
 		System.out.println(job.getJobDescription());
+		System.out.println("Last date to Apply "+job.getLastDateApply());
 		if(jobDAO.addJob(job))
 		{
 			return new ResponseEntity<String>("Jod details added",HttpStatus.OK);
@@ -64,5 +70,28 @@ public class JobController
 			return new ResponseEntity<String>("Job details not Found",HttpStatus.NOT_FOUND);
 		}
 		
+	}
+	
+	@PostMapping("/applyJob")
+	public ResponseEntity<String> applyJob(@RequestBody JobApplyDetails jobApply,HttpSession session)
+	{
+		
+		UserDetail userDetail=(UserDetail)session.getAttribute("userDetail");
+		jobApply.setApplyDate(new Date());
+		System.out.println(jobApply.getJobId());
+		System.out.println("login name:"+userDetail.getLoginName());
+		//jobApply.setJobId(job.getJobId());
+		jobApply.setUserName(userDetail.getLoginName());
+		
+		System.out.println("user name is "+jobApply.getUserName()+" applydate is "+jobApply.getApplyDate());
+		
+		if(jobDAO.applyJob(jobApply))
+		{
+			return new ResponseEntity<String>("Jod apply added",HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<String>("Error in inserting Jod apply details",HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }

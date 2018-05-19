@@ -84,4 +84,20 @@ public class UserDetailController
 			return new ResponseEntity<UserDetail>(userDetail,HttpStatus.UNAUTHORIZED);
 		}
 	}
+	
+	@PostMapping(value="/chkDuplicateLogin")
+	public ResponseEntity<String> chkDuplicateLogin(@RequestBody String loginName,HttpSession session)
+	{
+		
+		if(userDAO.chkDuplicateLogin(loginName))
+		{
+			session.setAttribute("userExist", "duplicate");
+			return new ResponseEntity<String>("DuplicateLogin",HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		else
+		{
+			session.setAttribute("userExist", "unique");
+			return new ResponseEntity<String>("ValidLoginName",HttpStatus.OK);
+		}
+	}
 }

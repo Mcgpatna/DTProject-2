@@ -2,7 +2,7 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
  {
 	$scope.blog={blogId:0,blogName:'',blogContent:'',createDate:'',likes:0,loginName:'',status:''};
 	
-	$scope.blogComment={commentId:0,commentTest:'',loginname:'',blogId:0,commentDate:''};
+	$scope.blogComment={commentId:0,commentText:'',loginName:'',blogId:0,commentDate:''};
 	
 	console.log($scope.blog);
 	$scope.blogdata;
@@ -10,6 +10,7 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
 	$scope.showNBlog;
 	
 	$rootScope.blogCommentData;
+	$rootScope.blogId;
 	
 	
 	var url='http://localhost:8082/ChatMiddleware/';
@@ -38,7 +39,7 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
 			 		console.log(response.data);
 				 });
 		
-		$location.path("/showblog");
+		$location.path("/approveblog");
 	}
 	
 	// for deleteing  a blog having status as NA
@@ -51,7 +52,7 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
 			 		console.log(response.data);
 				 });
 		
-		$location.path("/showblog");
+		$location.path("/approveblog");
 	}
 	
 //it is called by ShowBlogs.html to increase the no of like for a blog
@@ -62,9 +63,10 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
 		 .then(function(response)
 				 {
 			 		console.log(response.data);
+			 		$location.path("/showblog");
 				 });
 		
-		$location.path("/showblog");
+		
 	}
 	
 	function myBlog()
@@ -110,10 +112,10 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
 	$scope.addBlogComment=function()
 	{
 		console.log('Adding  blog Comment');
-		$scope.blogComment.loginname=currentUser.loginname;
+		$scope.blogComment.loginName=$rootScope.currentUser.loginName;
 		$scope.blogComment.blogId=$rootScope.blogId;
-		
-		$http.post(url+'/addComment',$scope.blog)
+		console.log($scope.blogComment);
+		$http.post(url+'/addComment',$scope.blogComment)
 			.then(function(response)
 				{
 					console.log("Blog Comment is Added");
@@ -127,12 +129,20 @@ myApp.controller("BlogController",function($scope,$rootScope,$location,$http,$co
 	{
 		console.log('within listBlogComment()..');
 		console.log('id = '+Id);
+		$scope.blogComment.blogId=Id;
+		$rootScope.blogId=Id;
 		$http.get(url+'listAllBlogComment/'+Id)
-			.then(function(response)
+			.then(function successCallback(response)
 					{
+						console.log(response.data);
 						$rootScope.blogCommentData=response.data;
-						$rootScope.blogId=Id;
+						
+						console.log($rootScope.blogId=Id);
 						console.log($rootScope.blogCommentData);
+						$location.path("/blogcomment");
+					},
+					function errorCallback(response) 
+					{
 						$location.path("/blogcomment");
 					});
 	}

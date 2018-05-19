@@ -21,7 +21,7 @@ public class BlogComment {
 	String commentText;
 	String loginName;
 	int blogId;
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-mm-yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	Date commentDate;
 	public int getCommentId() {
 		return commentId;

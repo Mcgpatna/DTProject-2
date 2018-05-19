@@ -3,6 +3,7 @@ package com.niit.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import com.niit.model.Job;
+import com.niit.model.JobApplyDetails;
 
 @Repository("jobDAO")
 public class JobDAOImpl implements JobDAO
@@ -85,7 +87,8 @@ public class JobDAOImpl implements JobDAO
 			return null;
 		}
 	}
-
+ 
+	
 	public Job getJob(int jobId) 
 	{
 		
@@ -104,10 +107,23 @@ public class JobDAOImpl implements JobDAO
 		}
 	}
 	
-	public boolean applyJob(int jobId)
+	@Transactional
+	public boolean applyJob(JobApplyDetails jobApply)
 	{
 		
-		return true;
+		try
+		{
+			sessionFactory.getCurrentSession().save(jobApply);
+			return true;
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("error in inserting into JobApplyDetails..."+e);
+			return false;
+		}
+		
+		
 	}
 	
 

@@ -1,7 +1,8 @@
+
 <div class="container" ng-controller="JobController">
 
 <div class="table-responsive">
-<table class="table">
+<table class="table-responsive" border="1">
 
 	<tr>
 		<th>Job Description</th>
@@ -19,8 +20,8 @@
 			<td>{{job.company}}</td>
 			<td>{{job.location}}</td>
 			<td>{{job.lastDateApply}}</td>
-			<td><input ng-show="currentUser.role=='USER'" type="button" value="Apply" class="btn btn-info" ng-click="applyJob(jod.jodId)"/></td>
-			<td><input ng-show="currentUser.role=='ADMIN'"type="button" value="Delete" class="btn btn-info" ng-click="deleteJob(jod.jodId)"/></td>
+			<td><input ng-show="currentUser.role=='USER'" type="button" value="Apply" class="btn btn-info" ng-click="applyJob(job.jobId)"/></td>
+			<td><input ng-show="currentUser.role=='ADMIN'"type="button" value="Delete" class="btn btn-info" ng-click="deleteJob(job.jobId)"/></td>
 			
 						
 	</tr>

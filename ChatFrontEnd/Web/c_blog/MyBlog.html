@@ -1,15 +1,18 @@
 <div class="container" ng-controller="BlogController">
 
-<table class="table">
+<table class="table-responsive">
 
 	<tr>
 		<th>Blog Name</th>
 		<th>Blog Content</th>
+		<th>Status</th>
 	</tr>
 	<tr ng-repeat="blog in blogdata">
 		
 			<td>{{blog.blogName}}</td>
 			<td>{{blog.blogContent}}</td>
+			<td ng-if="blog.status=='A'">Approved</td>
+			<td ng-if="blog.status=='NA'">Not Approved</td>
 			
 	</tr>
 </table>

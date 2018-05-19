@@ -17,6 +17,7 @@ myApp.config(function($routeProvider)
 				.when("/showFriend",{templateUrl:"c_friend/ShowFriend.html"})
 				.when("/showPendingFriend",{templateUrl:"c_friend/ShowPendingFriend.html"})
 				.when("/showSuggestedFriend",{templateUrl:"c_friend/ShowSuggestedFriend.html"})
+				.when("/chat",{templateUrl:"c_chat/chat.html"})
 });
 
 myApp.run(function($rootScope,$cookieStore)

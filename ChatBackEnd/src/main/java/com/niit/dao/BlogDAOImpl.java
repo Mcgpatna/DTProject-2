@@ -274,9 +274,14 @@ public class BlogDAOImpl implements BlogDAO
 	public List<BlogComment> listBlogComments(int blogId) 
 	{
 		Session session=sessionFactory.openSession();
+		System.out.println("blog id is "+blogId);
 		Query query=session.createQuery("from BlogComment where blogId=:blogId");
 		query.setParameter("blogId",blogId);
 		List <BlogComment> listBlogComments=query.list();
+		for(BlogComment comment:listBlogComments)
+		{
+			System.out.println("id :"+comment.getBlogId()+"::"+comment.getLoginName()+"::"+comment.getCommentText());
+		}
 		return listBlogComments;
 	}
 	

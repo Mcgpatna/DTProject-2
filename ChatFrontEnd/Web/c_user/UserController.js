@@ -3,7 +3,7 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 	$scope.User={loginName:'',password:'',userName:'',emailId:'',mobileNo:'',address:'',status:'',role:''};
 	$scope.profile={loginName:'',image:''};
 	
-	$scope.register=function()
+	$scope.registered=function()
 	{
 		console.log('Inside the register function of UserController.js');
 		
@@ -29,12 +29,28 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 					$scope.User=response.data;
 					$rootScope.currentUser=response.data;
 					console.log($rootScope.currentUser);
-					$cookieStore.put('userDetails',response.data);
+					$cookieStore.put('userDetail',response.data);
 					
 					$location.path("/UserHome");
 				});
 		
 	}
+	//checking for duplicate login name
+	$scope.chkDuplicateLogin=function()
+	{
+		 console.log('Inside chkDuplicateLogin() ...');
+		 $http.post('http://localhost:8082/ChatMiddleware/chkLogin',$scope.User.loginName)
+		  .then(function(response)
+				  {
+			  		console.log(response.data);
+			  		
+				  },
+				  function(error)
+				  {
+					  
+				  });
+	}
+	
 	
 	$scope.doUpload=function()
 	{
@@ -53,6 +69,6 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 		$cookieStore.remove('userDetail');
 		delete $rootScope.currentUser;
 		$rootScope.message = "Logout successfully!";
-	    $location.path('/index.jsp');
+	    $location.path('/');
 	}
 });

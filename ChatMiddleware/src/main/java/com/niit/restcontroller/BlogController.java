@@ -1,5 +1,6 @@
 package com.niit.restcontroller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -202,6 +203,7 @@ public class BlogController
 	@GetMapping("/listAllBlogComment/{blogId}")
 	public ResponseEntity<List<BlogComment>> showBlogComment(@PathVariable("blogId") int blogId)
 	{
+		System.out.println("blog id is "+blogId);
 		List<BlogComment> listBlogComment=blogDAO.listBlogComments(blogId);
 		if(listBlogComment.size()>0)
 		{
@@ -216,6 +218,7 @@ public class BlogController
 	@PostMapping("/addComment")
 	public ResponseEntity<String> addComment(@RequestBody BlogComment blogComment)
 	{
+		blogComment.setCommentDate(new Date());
 		if(blogDAO.addBlogComment(blogComment))
 		{
 			return new ResponseEntity<String>("Success..",HttpStatus.OK);

@@ -2,6 +2,9 @@ com\niit\restcontroller\UserProfileController.class
 com\niit\restcontroller\ForumController.class
 com\niit\restcontroller\UserDetailController.class
 com\niit\config\WebInitializer.class
+com\niit\config\WebSocketConfig.class
 com\niit\restcontroller\JobController.class
 com\niit\restcontroller\BlogController.class
+com\niit\restcontroller\ChatController.class
 com\niit\config\WebResolver.class
+com\niit\restcontroller\FriendController.class

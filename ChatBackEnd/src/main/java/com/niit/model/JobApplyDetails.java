@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @SequenceGenerator(name="jobapplyidseq",sequenceName="jobapply_seq")
 public class JobApplyDetails 
@@ -18,6 +20,7 @@ public class JobApplyDetails
 	int jobApplyId;
 	int jobId;
 	String userName;
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
 	Date applyDate;
 	
 	

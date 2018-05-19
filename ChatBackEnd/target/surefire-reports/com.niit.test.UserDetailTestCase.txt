@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.test.UserDetailTestCase
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.297 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.283 sec

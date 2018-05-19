@@ -13,4 +13,5 @@ public interface UserDetailDAO
 	public UserDetail getUser(String loginName);
 	public List<UserDetail> listAllUsers();
 	public boolean chkCredential(UserDetail user);
+	public boolean chkDuplicateLogin(String loginName);
 }

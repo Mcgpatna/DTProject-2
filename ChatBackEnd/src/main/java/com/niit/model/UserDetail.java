@@ -3,6 +3,7 @@ package com.niit.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table
@@ -18,6 +19,8 @@ public class UserDetail {
 	String address;
 	String status;
 	String role;
+	
+	
 	
 	
 	public String getLoginName() {

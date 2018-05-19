@@ -5,6 +5,7 @@ F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\ForumDAOImpl.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\model\Forum.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\ForumDAO.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\UserDetailDAO.java
+F:\dt workspace\ChatBackEnd\src\main\java\com\niit\model\Message.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\BlogDAO.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\model\BlogComment.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\JobDAO.java
@@ -19,4 +20,5 @@ F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\BlogDAOImpl.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\config\DBConfig.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\dao\FriendDAO.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\model\Job.java
+F:\dt workspace\ChatBackEnd\src\main\java\com\niit\model\OutputMessage.java
 F:\dt workspace\ChatBackEnd\src\main\java\com\niit\model\UserProfile.java

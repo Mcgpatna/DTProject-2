@@ -3,6 +3,7 @@ package com.niit.dao;
 import java.util.List;
 
 import com.niit.model.Job;
+import com.niit.model.JobApplyDetails;
 
 public interface JobDAO 
 {
@@ -11,6 +12,6 @@ public interface JobDAO
 	public boolean updateJob(Job job);
 	public Job getJob(int jobId);
 	public List<Job> listtAllJobs();
-	public boolean applyJob(int jobId);
+	public boolean applyJob(JobApplyDetails jobApply);
 
 }
