@@ -43,14 +43,15 @@ public class JobTestCase
 		job.setCompany("Infosys");
 		job.setJobDesignation("Project Leader");
 		job.setLocation("Pune");
-		Date dt=new Date(2018,05,20);
+		Date dt=new Date(2018,04,20);
 		
-		job.setLastDateApply(dt);
+		job.setPublishDate(dt);
 		job.setSalary(12000);
 		
 		assertTrue("Problem in insert job... ",jobDAO.addJob(job));
 	}
 	
+	@Ignore
 	@Test
 	public void listAllJobTestCase()
 	{
@@ -73,15 +74,17 @@ public class JobTestCase
 		assertTrue("Problem in Job Deletion..",jobDAO.deleteJob(952));
 	}
 	
+	@Ignore
 	@Test
 	public void updatingJobTest()
 	{
 		Job job=jobDAO.getJob(952);
-		Date dt=job.getLastDateApply();
+		/*Date dt=job.getLastDateApply();
 		int mm=dt.getMonth()+1;
 		System.out.println("month = "+mm);
 		Date dt1=new Date(2018,mm+1,20);
-		job.setLastDateApply(dt1);
+		job.setLastDateApply(dt1);*/
+		job.setSalary(15000);
 		assertTrue("Problem in Job updation..",jobDAO.updateJob(job));
 	}
 

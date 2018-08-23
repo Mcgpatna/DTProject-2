@@ -29,7 +29,9 @@ public class JobController
 	public ResponseEntity<String> addJob(@RequestBody Job job)
 	{
 		System.out.println(job.getJobDescription());
-		System.out.println("Last date to Apply "+job.getLastDateApply());
+		System.out.println("Job Publish Date "+job.getPublishDate());
+		job.setPublishDate(new Date());
+		
 		if(jobDAO.addJob(job))
 		{
 			return new ResponseEntity<String>("Jod details added",HttpStatus.OK);

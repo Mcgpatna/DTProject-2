@@ -1,3 +1,4 @@
+<div ng-app="myApp">
 <div class="container" ng-controller="UserController">
 	<h1 class="well"><center><font face="Monotype Corsiva">Registration Page</font></center></h1>
 	<div class="col s5">
@@ -8,9 +9,11 @@
 					<div class="input-field">
 						<label>Login Name</label>
 						<input id="loginName" type="text" name="loginName" ng-model="User.loginName" placeholder="Enter User Name Here" ng-maxlength="15" ng-minlength="6" class="form-control" ng-blur="chkDuplicateLogin()" required>
+						<div ng-show="register.$dirty">					
+						<span ng-show="userNameExist">User Name is already taken</span>
 						<span ng-show="register.loginName.$error.minlength" style="color:red">Minimun characters is 6</span>
 						<span ng-show="register.loginName.$error.maxlength" style="color:red">Maximum characters is 15</span>
-						
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -58,9 +61,10 @@
 						<textarea id="address" rows="5" col="15" type="text" name="address" ng-model="User.address" placeholder="Enter Your Address Here" class="form-control" required> </textarea>
 					</div>
 				</div>
-					<button ng-disabled="register.$invalid" type="button" ng-click="registered()" class="btn btn-lg btn-info">Submit</button>
+					<button   ng-disabled="(register.$invalid || userNameExist )" type="button" ng-click="registered()" class="btn btn-lg btn-info">Submit</button>
 				
 		</form>
 	</div>
  </div>
+</div>
 </div>

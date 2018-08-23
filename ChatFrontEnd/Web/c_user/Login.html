@@ -13,6 +13,7 @@
 						<input type="password" name="password" ng-model="User.password" placeholder="Enter password Here" >
 					</div>
 					<center><input type="submit" value="Login" ng-click="login()" class="btn btn-lg btn-info"></center>
+					<span ng-show="userNameExist">Login Name or Password is incorrect</span>					
 				</div>
 			</div>
 		</form>

@@ -10,7 +10,7 @@
 		<th>Salary</th>
 		<th>Company</th>
 		<th>Job Location</th>
-		<th> Last Date to Apply </th>
+		<th>Publish Date </th>
 	</tr>
 	<tr ng-repeat="job in allJobData">
 		
@@ -19,7 +19,7 @@
 			<td>{{job.salary}}</td>
 			<td>{{job.company}}</td>
 			<td>{{job.location}}</td>
-			<td>{{job.lastDateApply}}</td>
+			<td>{{job.publishDate}}</td>
 			<td><input ng-show="currentUser.role=='USER'" type="button" value="Apply" class="btn btn-info" ng-click="applyJob(job.jobId)"/></td>
 			<td><input ng-show="currentUser.role=='ADMIN'"type="button" value="Delete" class="btn btn-info" ng-click="deleteJob(job.jobId)"/></td>
 			

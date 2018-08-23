@@ -66,6 +66,7 @@ public class UserDetailTestCase {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void chkUserTestCase()
 	{

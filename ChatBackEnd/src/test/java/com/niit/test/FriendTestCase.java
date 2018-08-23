@@ -86,6 +86,7 @@ public class FriendTestCase
 		}
 	}
 
+	@Ignore
 	@Test
 	public void showPendingRequestTest()
 	{

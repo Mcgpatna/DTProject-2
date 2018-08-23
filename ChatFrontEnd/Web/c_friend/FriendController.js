@@ -71,8 +71,8 @@ myApp.controller("FriendController",function($http,$scope,$rootScope,$location)
 	$scope.sendFriendRequest=function(loginname)
 	{
 		console.log('inside sendFriendRequest() ...');
-		$scope.friend.loginName=$rootScope.currentUser.loginName;
-		$scope.friend.friendLoginName=loginname;
+		$scope.friend.loginName=loginname;
+		$scope.friend.friendLoginName=$rootScope.currentUser.loginName;
 		$scope.friend.status='P';
 		
 		$http.post('http://localhost:8082/ChatMiddleware/sendFriendRequest',$scope.friend)

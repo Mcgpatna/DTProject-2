@@ -45,6 +45,7 @@ public class DBConfig {
 		DriverManagerDataSource dataSource = new  DriverManagerDataSource();
 		
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		//we can replace @localhost with ip address of m/c having oracle server
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
 		dataSource.setUsername("hr");
 		dataSource.setPassword("hr");

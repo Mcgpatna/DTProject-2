@@ -25,7 +25,15 @@ public class Job
 	String location;
 	int salary;
 	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy")
-	Date lastDateApply;
+	Date publishDate;
+	
+	
+	public Date getPublishDate() {
+		return publishDate;
+	}
+	public void setPublishDate(Date publishDate) {
+		this.publishDate = publishDate;
+	}
 	public int getJobId() {
 		return jobId;
 	}
@@ -62,12 +70,7 @@ public class Job
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public Date getLastDateApply() {
-		return lastDateApply;
-	}
-	public void setLastDateApply(Date lastDateApply) {
-		this.lastDateApply = lastDateApply;
-	}
+	
 	
 	
 	

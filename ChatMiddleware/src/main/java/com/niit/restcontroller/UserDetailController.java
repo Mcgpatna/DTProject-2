@@ -36,7 +36,7 @@ public class UserDetailController
 	public ResponseEntity<String> addUser(@RequestBody UserDetail user)
 	{
 					
-		user.setRole("USER");
+		user.setRole("USER"); //role will be USER or ADMIN
 		user.setStatus("A");
 		
 		System.out.println("Role of User is "+user.getRole());
@@ -86,18 +86,18 @@ public class UserDetailController
 	}
 	
 	@PostMapping(value="/chkDuplicateLogin")
-	public ResponseEntity<String> chkDuplicateLogin(@RequestBody String loginName,HttpSession session)
+	public ResponseEntity<Boolean> chkDuplicateLogin(@RequestBody String loginName,HttpSession session)
 	{
 		
 		if(userDAO.chkDuplicateLogin(loginName))
 		{
 			session.setAttribute("userExist", "duplicate");
-			return new ResponseEntity<String>("DuplicateLogin",HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<Boolean>(true,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		else
 		{
 			session.setAttribute("userExist", "unique");
-			return new ResponseEntity<String>("ValidLoginName",HttpStatus.OK);
+			return new ResponseEntity<Boolean>(false,HttpStatus.OK);
 		}
 	}
 }

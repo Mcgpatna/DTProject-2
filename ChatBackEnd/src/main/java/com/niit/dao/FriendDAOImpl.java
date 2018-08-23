@@ -25,7 +25,7 @@ public class FriendDAOImpl implements FriendDAO
 		try
 		{
 			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from Friend where loginName=:myloginname and status='A'");
+			Query query=session.createQuery("from Friend where friendLoginName=:myloginname and status='A'");
 			query.setParameter("myloginname", loginname);
 			//query.setParameter("floginname", loginname);
 			List<Friend> listFriends=(List<Friend>)query.list();
@@ -58,7 +58,7 @@ public class FriendDAOImpl implements FriendDAO
 	{
 	
 		Session session=sessionFactory.openSession();
-		SQLQuery sqlQuery=session.createSQLQuery("select loginName from UserDetail where loginName not in(select friendLoginName from Friend where loginName='"+loginname+"') and loginName !='"+loginname+"'");
+		SQLQuery sqlQuery=session.createSQLQuery("select loginName from UserDetail where loginName not in(select loginName from Friend where friendLoginName='"+loginname+"') and loginName !='"+loginname+"'");
 		List<String> listUsers=(List<String>) sqlQuery.list();
 		ArrayList<UserDetail> listUserDetail=new ArrayList<UserDetail>();
 		int i=0;
@@ -77,6 +77,7 @@ public class FriendDAOImpl implements FriendDAO
 		try
 		{
 			sessionFactory.getCurrentSession().save(friend);
+			System.out.println("inside sendFriendRequest()..");
 			return true;
 		}
 		catch(Exception e)
@@ -96,6 +97,14 @@ public class FriendDAOImpl implements FriendDAO
 			friend.setStatus("A");
 			session.update(friend);
 			System.out.println("Updated..\n"+"Login Name:"+friend.getLoginName());
+			session.flush();
+			Friend fr1=new Friend();
+			String nm=friend.getFriendLoginName();
+			String fnm=friend.getLoginName();
+			fr1.setFriendLoginName(fnm);
+			fr1.setLoginName(nm);
+			fr1.setStatus("A");
+			session.save(fr1);
 			session.flush();
 			session.close();
 			return true;

@@ -3,7 +3,7 @@ myApp.controller("JobController",function($scope,$rootScope,$location,$http)
 {
 	var url='http://localhost:8082/ChatMiddleware/';
 	
-	$scope.job={jobId:0,jobDescription:'',jobDesignation:'',company:'',location:'',salary:0,lastDateApply:''};
+	$scope.job={jobId:0,jobDescription:'',jobDesignation:'',company:'',location:'',salary:0,publishDate:''};
 	$scope.jobApply={jobApplyId:0,jobId:0,userName:'',applyDate:''};
 	
 	
@@ -14,9 +14,6 @@ myApp.controller("JobController",function($scope,$rootScope,$location,$http)
 		console.log("inside addJob()..");
 		console.log($scope.job);
 		
-		
-		
-		console.log($scope.job.lastDateApply);
 		$http.post(url+'addJob',$scope.job)
 			.then(function(response)
 					{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="11" failures="0" name="com.niit.test.BlogDAOTestCase" time="2.73" errors="0" skipped="10">
+<testsuite tests="11" failures="0" name="com.niit.test.BlogDAOTestCase" time="3.558" errors="0" skipped="10">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 8"/>
-    <property name="classworlds.conf" value="F:\dt workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5820764594977829483.tmp"/>
+    <property name="classworlds.conf" value="F:\dt workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6543414112599220254.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_45\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_45/bin/server;C:/Program Files/Java/jre1.8.0_45/bin;C:/Program Files/Java/jre1.8.0_45/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\oraclexe\app\oracle\product\11.2.0\server\bin;;c:\oracle\product\10.2.0\client_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.7.0_11\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Users\ADMIN\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\ADMIN\AppData\Local\Programs\Python\Python36\;C:\Program Files\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="addBlogTest" time="1.825">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="addBlogTest" time="2.598">
     <skipped/>
     <system-out>+++++ Do database manipulation of Blog Model as BlogDAO has been enabled now!! +++++
 inside getDataSource()....
@@ -73,62 +73,62 @@ inside getDataSource()....
 +++++ Do database manipulation of UserProfile Model as UserProfileDAO has been enabled now!! +++++
 +++++  FriendDAO has been enabled now!! +++++
 (   (  ( (Transaction Tunnel has been opened for a Synchronized committed transaction with the Oracle Database) )  )   )
- We are inside Before Class intantiated object!!com.niit.dao.BlogDAOImpl@13e698c7
+ We are inside Before Class intantiated object!!com.niit.dao.BlogDAOImpl@aed0151
 </system-out>
-    <system-err>May 05, 2018 11:46:40 AM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
-INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@64c64813: startup date [Sat May 05 11:46:40 IST 2018]; root of context hierarchy
-May 05, 2018 11:46:40 AM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+    <system-err>Aug 23, 2018 1:05:03 PM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@64c64813: startup date [Thu Aug 23 13:05:03 IST 2018]; root of context hierarchy
+Aug 23, 2018 1:05:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
 INFO: Overriding bean definition for bean &apos;blogDAO&apos; with a different definition: replacing [Generic bean: class [com.niit.dao.BlogDAOImpl]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\dt workspace\ChatBackEnd\target\classes\com\niit\dao\BlogDAOImpl.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=DBConfig; factoryMethodName=getBlogDAO; initMethodName=null; destroyMethodName=(inferred); defined in com.niit.config.DBConfig]
-May 05, 2018 11:46:40 AM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+Aug 23, 2018 1:05:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
 INFO: Overriding bean definition for bean &apos;forumDAO&apos; with a different definition: replacing [Generic bean: class [com.niit.dao.ForumDAOImpl]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\dt workspace\ChatBackEnd\target\classes\com\niit\dao\ForumDAOImpl.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=DBConfig; factoryMethodName=getforumDAO; initMethodName=null; destroyMethodName=(inferred); defined in com.niit.config.DBConfig]
-May 05, 2018 11:46:40 AM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+Aug 23, 2018 1:05:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
 INFO: Overriding bean definition for bean &apos;userDetailDAO&apos; with a different definition: replacing [Generic bean: class [com.niit.dao.UserDetailDAOImpl]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\dt workspace\ChatBackEnd\target\classes\com\niit\dao\UserDetailDAOImpl.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=DBConfig; factoryMethodName=getUserDetailDAO; initMethodName=null; destroyMethodName=(inferred); defined in com.niit.config.DBConfig]
-May 05, 2018 11:46:40 AM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+Aug 23, 2018 1:05:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
 INFO: Overriding bean definition for bean &apos;userProfileDAO&apos; with a different definition: replacing [Generic bean: class [com.niit.dao.UserProfileDAOImpl]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\dt workspace\ChatBackEnd\target\classes\com\niit\dao\UserProfileDAOImpl.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=DBConfig; factoryMethodName=getUserProfileDAO; initMethodName=null; destroyMethodName=(inferred); defined in com.niit.config.DBConfig]
-May 05, 2018 11:46:40 AM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
+Aug 23, 2018 1:05:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory registerBeanDefinition
 INFO: Overriding bean definition for bean &apos;jobDAO&apos; with a different definition: replacing [Generic bean: class [com.niit.dao.JobDAOImpl]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [F:\dt workspace\ChatBackEnd\target\classes\com\niit\dao\JobDAOImpl.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=DBConfig; factoryMethodName=getJobDAO; initMethodName=null; destroyMethodName=(inferred); defined in com.niit.config.DBConfig]
-May 05, 2018 11:46:40 AM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+Aug 23, 2018 1:05:03 PM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
 INFO: Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
-May 05, 2018 11:46:40 AM org.hibernate.Version logVersion
+Aug 23, 2018 1:05:03 PM org.hibernate.Version logVersion
 INFO: HHH000412: Hibernate Core {5.1.3.Final}
-May 05, 2018 11:46:40 AM org.hibernate.cfg.Environment &lt;clinit&gt;
+Aug 23, 2018 1:05:03 PM org.hibernate.cfg.Environment &lt;clinit&gt;
 INFO: HHH000206: hibernate.properties not found
-May 05, 2018 11:46:40 AM org.hibernate.cfg.Environment buildBytecodeProvider
+Aug 23, 2018 1:05:03 PM org.hibernate.cfg.Environment buildBytecodeProvider
 INFO: HHH000021: Bytecode provider name : javassist
-May 05, 2018 11:46:40 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
+Aug 23, 2018 1:05:03 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
 INFO: HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-May 05, 2018 11:46:40 AM org.hibernate.dialect.Dialect &lt;init&gt;
+Aug 23, 2018 1:05:04 PM org.hibernate.dialect.Dialect &lt;init&gt;
 INFO: HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-May 05, 2018 11:46:41 AM org.springframework.orm.hibernate5.HibernateTransactionManager afterPropertiesSet
+Aug 23, 2018 1:05:05 PM org.springframework.orm.hibernate5.HibernateTransactionManager afterPropertiesSet
 INFO: Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@312afbc7] of Hibernate SessionFactory for HibernateTransactionManager
 </system-err>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="addCommentTest" time="0.086"/>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="listAllBlogTestCase" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="addCommentTest" time="0.096"/>
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="listAllBlogTestCase" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="rejectBlogTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="rejectBlogTest" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="approveBlogTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="approveBlogTest" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="listNotApprovedBlogByUserTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="listNotApprovedBlogByUserTest" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="listBlogByUserTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="listBlogByUserTest" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="deleteingBlogTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="deleteingBlogTest" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="listAllBlogComment" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="listAllBlogComment" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="deleteingBlogCommentTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="deleteingBlogCommentTest" time="0.096">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.test.BlogDAOTestCase" name="increamentLikeTest" time="0.091">
+  <testcase classname="com.niit.test.BlogDAOTestCase" name="increamentLikeTest" time="0.096">
     <skipped/>
   </testcase>
 </testsuite>

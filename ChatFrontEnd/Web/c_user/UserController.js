@@ -3,6 +3,8 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 	$scope.User={loginName:'',password:'',userName:'',emailId:'',mobileNo:'',address:'',status:'',role:''};
 	$scope.profile={loginName:'',image:''};
 	
+	$rootScope.userNameExist;
+	
 	$scope.registered=function()
 	{
 		console.log('Inside the register function of UserController.js');
@@ -16,7 +18,7 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 					console.log('Registration is Successful');
 					console.log(response.statusText);
 					
-					$location.path("/login");
+					$location.path('ChatFrontEnd/login');
 				});
 	}
 	
@@ -30,25 +32,36 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 					$rootScope.currentUser=response.data;
 					console.log($rootScope.currentUser);
 					$cookieStore.put('userDetail',response.data);
-					
+					$rootScope.userNameExist=true;
 					$location.path("/UserHome");
-				});
+				},
+				function(error)
+				  {
+					  console.log(error.data);
+					  console.log("Either User Name or Password is Incorrect");  
+					  $rootScope.userNameExist=false;
+				  });
 		
 	}
 	//checking for duplicate login name
 	$scope.chkDuplicateLogin=function()
 	{
 		 console.log('Inside chkDuplicateLogin() ...');
-		 $http.post('http://localhost:8082/ChatMiddleware/chkLogin',$scope.User.loginName)
+		 $http.post('http://localhost:8082/ChatMiddleware/chkDuplicateLogin',$scope.User.loginName)
 		  .then(function(response)
 				  {
-			  		console.log(response.data);
 			  		
+			  		console.log(response.data);
+			  		console.log("User Name is Unique");
+			  		$rootScope.userNameExist=false;
 				  },
 				  function(error)
 				  {
-					  
+					  console.log(error.data);
+					  console.log("User Name is already Taken");  
+					  $rootScope.userNameExist=true;
 				  });
+		 
 	}
 	
 	
@@ -65,10 +78,13 @@ myApp.controller("UserController",function($scope,$rootScope,$http,$location,$co
 	
 	$rootScope.logout=function()
 	{
-		console.log("logout successfully");
+		console.log("location is " +$location.path());
+		console.log("logout successfully......");
+		
 		$cookieStore.remove('userDetail');
 		delete $rootScope.currentUser;
 		$rootScope.message = "Logout successfully!";
-	    $location.path('/');
+		
+	    $location.path('ChatFrontEnd/login');
 	}
 });
